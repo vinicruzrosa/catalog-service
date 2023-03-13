@@ -1,8 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import express from "express";
 import LivroRouter from "./routes/livroRouter"
 
-const prisma = new PrismaClient();
 
 const app = express();
 const port = process.env.PORT || 3000;
