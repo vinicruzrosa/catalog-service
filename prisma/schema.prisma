@@ -15,35 +15,6 @@ model Livro {
   titulo          String
   autor           String
   editora         String
-  ano_publicacao  Int
+  ano_publicacao  String
   preco           Float
-  itens           ItemCompra[]
-}
-
-model Cliente {
-  id        Int            @id @default(autoincrement())
-  nome      String
-  email     String
-  endereco  String
-  telefone  String
-  compras   Compra[]
-}
-
-model Compra {
-  id           Int         @id @default(autoincrement())
-  cliente     Cliente     @relation(fields: [clienteId], references: [id])
-  clienteId   Int
-  data         DateTime
-  valor_total Float
-  itens        ItemCompra[]
-}
-
-model ItemCompra {
-  id            Int         @id @default(autoincrement())
-  compra        Compra      @relation(fields: [compraId], references: [id])
-  compraId      Int
-  livro         Livro       @relation(fields: [livroId], references: [id])
-  livroId       Int
-  quantidade    Int
-  preco_unitario Float
 }
